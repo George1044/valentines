@@ -67,7 +67,7 @@ function animateNoTo(targetX, targetY, duration = 420) {
     noMoveCount++;
     if (noMoveCount >= 5) {
         // show image popup briefly, then remove the No button so only Yes remains
-        setTimeout(() => { revealPopupAndRemoveNo(); }, 120);
+        setTimeout(() => { revealPopupAndRemoveNo(); }, 300);
     }
 }
 
