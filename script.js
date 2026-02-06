@@ -117,8 +117,20 @@ no.addEventListener('mousedown', (e) => { e.stopPropagation(); moveNoAwayFromMou
 
 yes.addEventListener('click', () => {
     explodeConfetti(mouse.x, mouse.y);
-    document.querySelector('.note').textContent = 'She clicked YES! 💖';
-    yes.disabled = true; no.disabled = true;
+    document.querySelector('.note').textContent = 'Yay! 🎉';
+    // remove the Yes button so only the happy gif remains
+    try { yes.remove(); } catch (e) { yes.style.display = 'none'; }
+    // show centered happy gif (default file: happy-happy-cat.gif)
+    const overlay = document.createElement('div');
+    overlay.className = 'popup-overlay';
+    const img = document.createElement('img');
+    img.className = 'popup-image';
+    img.src = window.YES_POPUP_IMAGE_SRC || 'happy-happy-cat.gif';
+    img.alt = 'Yay';
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    // remove overlay after a few seconds
+    setTimeout(() => { overlay.remove(); }, 4000);
 });
 
 function explodeConfetti(x = window.innerWidth / 2, y = window.innerHeight / 2) {
