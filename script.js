@@ -120,11 +120,13 @@ yes.addEventListener('click', () => {
     document.querySelector('.note').textContent = 'Yay! 🎉';
     // remove the Yes button so only the happy gif remains
     try { yes.remove(); } catch (e) { yes.style.display = 'none'; }
+    // also remove the No button if present
+    try { const n = document.getElementById('no'); if (n) n.remove(); } catch (e) { if (no) no.style.display = 'none'; }
     // show centered happy gif (default file: happy-happy-cat.gif)
     const overlay = document.createElement('div');
     overlay.className = 'popup-overlay';
     const img = document.createElement('img');
-    img.className = 'popup-image';
+    img.className = 'popup-image yes-popup-image';
     img.src = window.YES_POPUP_IMAGE_SRC || 'happy-happy-cat.gif';
     img.alt = 'Yay';
     overlay.appendChild(img);

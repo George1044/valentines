@@ -24,12 +24,20 @@ h1{font-size:2.2rem;margin:0;color:#222}
 .popup-overlay{
   position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.56);z-index:9999;
 }
-.popup-image{max-width:84%;max-height:84%;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.45);border:6px solid rgba(255,255,255,0.92)}
+.popup-image{display:block;max-width:100%;max-height:100%;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.45);border:6px solid rgba(255,255,255,0.92)}
 
 /* container for raw embed HTML (e.g., Tenor) */
-.popup-html{max-width:86%;max-height:86%;display:flex;align-items:center;justify-content:center}
+.popup-html{max-width:100%;max-height:100%;display:flex;align-items:center;justify-content:center}
 .popup-html > *{max-width:100%;max-height:100%}
 
 /* popup content layout */
-.popup-content{display:flex;flex-direction:column;align-items:center;gap:12px}
-.popup-text{color:#fff;font-size:1.6rem;font-weight:600;text-align:center;text-shadow:0 3px 10px rgba(0,0,0,0.6);}
+.popup-content{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:96%;max-height:92vh;padding:18px}
+.popup-text{color:#fff;font-size:1.8rem;font-weight:700;text-align:center;text-shadow:0 3px 14px rgba(0,0,0,0.65);}
+
+/* Larger sizing for the Yes popup image */
+.yes-popup-image{max-width:96%;max-height:90vh;border-radius:12px;box-shadow:0 16px 60px rgba(0,0,0,0.6);}
+.popup-overlay .popup-image{transition:transform 220ms ease, opacity 220ms ease}
+.yes-popup-image{transform:scale(1)}
+
+/* ensure overlay content fills and centers nicely on small screens */
+.popup-overlay .popup-content, .popup-overlay .popup-html{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
