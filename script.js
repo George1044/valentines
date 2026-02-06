@@ -132,7 +132,7 @@ yes.addEventListener('click', () => {
     overlay.appendChild(img);
     document.body.appendChild(overlay);
     // remove overlay after a few seconds
-    setTimeout(() => { overlay.remove(); }, 4000);
+    setTimeout(() => { overlay.remove(); }, 5000);
 });
 
 function explodeConfetti(x = window.innerWidth / 2, y = window.innerHeight / 2) {
@@ -198,7 +198,7 @@ function revealPopupAndRemoveNo() {
         overlay.remove();
         const n = document.getElementById('no');
         if (n) n.remove();
-    }, 2200);
+    }, 5000);
 }
 
 window.addEventListener('resize', () => { resizeCanvas(); });
